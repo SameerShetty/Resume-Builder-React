@@ -1,0 +1,395 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+*:before,
+*:after,
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Pathway+Gothic+One&family=Poppins:wght@200;400&family=Raleway:wght@100;200;600&family=Righteous&family=Roboto:wght@100;700&family=Rock+Salt&family=Sacramento&family=Sora:wght@100;300&display=swap");
+:root {
+  --font-color-black: #072227;
+  --font-color-white: #f0f5f9;
+  --font-color-primary-white: #ffff;
+  --font-color-grey: #52616b;
+
+  --box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+  --font-size-small: 0.9rem;
+  --font-size-main-header: 1.4rem;
+  --font-size-secondary-header: 1.15rem;
+  --font-size-sub-heading: 1.1rem;
+  --font-size-body: 1rem;
+  --font-form-header: 0.8rem;
+
+  --font-family-main: "Raleway", sans-serif;
+  --font-family-body: "Poppins", sans-serif;
+}
+@media only screen and (max-width: 700px) {
+  .btn {
+    padding: 16px 28px;
+    font-size: 0.8rem;
+  }
+}
+@media only screen and (max-width: 1345px) {
+  :root {
+    --font-size-small: 0.6rem;
+    --font-size-main-header: 1.2rem;
+    --font-size-secondary-header: 0.7rem;
+    --font-size-sub-heading: 1rem;
+    --font-size-body: 0.6rem;
+    --font-form-header: 0.6rem;
+  }
+}
+.btn {
+  padding: 18px 32px;
+  outline: none;
+  background-color: var(--font-color-grey);
+  color: var(--font-color-white);
+  font-family: var(--font-family-body);
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+}
+
+@media print {
+  :root {
+    --font-size-small: 1rem;
+    --font-size-main-header: 1.7rem;
+    --font-size-secondary-header: 1.4rem;
+    --font-size-sub-heading: 1.3rem;
+    --font-size-body: 1.2rem;
+  }
+  .resume {
+    width: 100%;
+    height: 100vh;
+    padding: 3rem;
+  }
+  .header {
+    padding: 2rem;
+  }
+  .container {
+    padding: 2rem;
+  }
+  .right-col {
+    padding: 2rem;
+  }
+}
+body {
+  background-color: var(--font-color-white);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+a,
+a:active,
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+hr {
+  border: 0;
+  width: 95%;
+  border-top: 2px solid var(--font-color-grey);
+}
+.link {
+  cursor: pointer;
+  color: var(--font-color-black);
+  font-size: var(--font-size-body);
+  font-family: var(--font-family-body);
+}
+.hero-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.preview-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 50%;
+
+  padding: 6rem 1rem 3rem 1rem;
+}
+.preview-wrapper .resume {
+  width: 85%;
+
+  padding: 1rem 0.5rem;
+  background-color: var(--font-color-primary-white);
+  box-shadow: var(--box-shadow);
+  user-select: none;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  width: 100%;
+  padding: 01rem 0.5rem;
+}
+.header .title {
+  min-width: 30%;
+  max-width: 40%;
+  text-align: center;
+}
+.header .title h1 {
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-main-header);
+  color: var(--font-color-black);
+}
+.header .title p {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-sub-heading);
+  color: var(--font-color-grey);
+}
+.header .info {
+  max-width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  padding: 0 0.5rem;
+}
+.header .info .box {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0.1rem 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.header .info .box h3 {
+  font-size: var(--font-size-small);
+  font-family: var(--font-family-body);
+  color: var(--font-color-grey);
+  text-align: left;
+  margin-left: 0.5rem;
+}
+.container {
+  padding: 0.5rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.container h3 {
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-secondary-header);
+  color: var(--font-color-black);
+}
+.container p {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
+  color: var(--font-color-grey);
+}
+.container h2 {
+  font-family: var(--font-family-main);
+  font-size: var(--font-size-sub-heading);
+  color: var(--font-color-black);
+}
+.container .left-col {
+  padding: 1rem 0;
+  min-width: 30%;
+  max-width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ref-links,
+.expertise,
+.achieve {
+  padding: 1rem 0 1rem 0.5rem;
+}
+.ref-links ul,
+.ref-links ul li,
+.expertise ul,
+.expertise ul li,
+.achieve ul,
+.achieve ul li {
+  padding: 0.5rem 0.1rem;
+  list-style: none;
+  font-size: var(--font-size-body);
+  font-family: var(--font-family-body);
+  color: var(--font-color-grey);
+}
+
+.right-col {
+  max-width: 70%;
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+.edu {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0.6rem 1rem 0.5rem 1rem;
+}
+.edu-wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  padding: 0.2rem;
+  justify-content: space-between;
+}
+.edu-wrapper div {
+  width: 45%;
+  padding: 1rem 0;
+}
+.edu-wrapper div p {
+  text-align: left;
+  padding: 0.1rem;
+  max-width: 100%;
+}
+.project,
+.skill,
+.hobby {
+  width: 100%;
+  padding: 1.5rem 1rem;
+}
+
+.project ul,
+.project ul li,
+.skill ul,
+.skill ul li,
+.hobby ul,
+.hobby ul li {
+  padding: 0.2rem 0.1rem;
+  list-style: none;
+  font-size: var(--font-size-body);
+  font-family: var(--font-family-body);
+  color: var(--font-color-grey);
+}
+
+.form-wrapper {
+  width: 50%;
+  background-color: var(--font-color-black);
+  display: flex;
+  flex-direction: column;
+  padding: 5rem 1rem 2rem;
+}
+.form-wrapper form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem 0.5rem;
+}
+.form-wrapper form label {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: var(--font-form-header);
+  font-family: var(--font-family-body);
+  color: var(--font-color-white);
+  padding: 0.5rem 0;
+}
+.form-wrapper form input,
+.form-wrapper form textarea {
+  width: 80%;
+  background-color: var(--font-color-white);
+  font-family: var(--font-family-body);
+  color: var(--font-color-black);
+  font-size: var(--font-size-body);
+  outline: none;
+  border: none;
+  margin: 0.2rem 0;
+  padding: 0.5rem 2rem 0.5rem 0.5rem;
+  border-radius: 5px;
+}
+
+.form-wrapper form input::placeholder,
+.form-wrapper form textarea::placeholder {
+  font-family: var(--font-family-body);
+  color: var(--font-color-grey);
+  font-size: var(--font-size-small);
+  opacity: 0.42;
+}
+.form-wrapper form textarea {
+  resize: vertical;
+  max-height: 150px;
+}
+
+@media only screen and (max-width: 1345px) {
+  .hero-container {
+    flex-direction: column;
+  }
+  .preview-wrapper {
+    width: 100%;
+    padding: 4rem 0.5rem 1.5rem 0.5rem;
+  }
+  .preview-wrapper .resume {
+    width: 95%;
+    padding: 0.5rem 0.2rem;
+  }
+
+  .header {
+    padding: 0.5rem 0.2rem;
+  }
+
+  .header .info {
+    padding: 0 0.3rem;
+  }
+
+  .container {
+    padding: 0.3rem;
+  }
+
+  .ref-links,
+  .expertise,
+  .achieve {
+    padding: 1rem 0 1rem 0.2rem;
+  }
+
+  .right-col {
+    padding: 1rem 0.5rem;
+  }
+  .edu {
+    padding: 0.6rem 0.5rem 0.5rem 0.5rem;
+  }
+
+  .edu-wrapper div {
+    padding: 0.7rem 0;
+  }
+
+  .project,
+  .skill,
+  .hobby {
+    padding: 1rem 0.5rem;
+  }
+
+  .form-wrapper {
+    width: 100%;
+
+    padding: 3rem 0.5rem 1rem;
+  }
+  .form-wrapper form {
+    padding: 1rem 0.5rem;
+  }
+
+  .form-wrapper form input,
+  .form-wrapper form textarea {
+    width: 90%;
+
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+  }
+}
