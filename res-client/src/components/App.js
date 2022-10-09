@@ -6,10 +6,6 @@ import { useReactToPrint } from "react-to-print";
 import "../index.css";
 
 function App() {
-  const componentRef = useRef();
-  const handlePrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
   const [isexp, setexp] = useState("");
   const [isach, setach] = useState("");
   const [isp, setp] = useState("");
@@ -31,6 +27,15 @@ function App() {
     sslc: "",
     puc: "",
     grad: "",
+  });
+  const componentRef = useRef();
+  function Handleprint(e) {
+    e.preventDefault();
+    handlePrint();
+  }
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: user.name + " Resume",
   });
   function handleadd(e) {
     e.preventDefault();
@@ -196,7 +201,7 @@ function App() {
 
                 <ul>
                   {exp.map((experts) => {
-                    return <li key={Math.random() * 10}>{experts}</li>;
+                    return <li>{experts}</li>;
                   })}
                 </ul>
               </div>
@@ -212,13 +217,7 @@ function App() {
 
                 <ul>
                   {achiev.map((ament) => {
-                    return (
-                      <li
-                        key={Math.random() * Math.random() * Math.random() * 10}
-                      >
-                        {ament}
-                      </li>
-                    );
+                    return <li>{ament}</li>;
                   })}
                 </ul>
               </div>
@@ -264,7 +263,7 @@ function App() {
                       <h2 style={{ display: user.sslc ? "block" : "none" }}>
                         SSLC
                       </h2>
-                      <p>{user.puc}</p>
+                      <p>{user.sslc}</p>
                     </div>
                   </div>
                 </div>
@@ -281,16 +280,7 @@ function App() {
 
                 <ul>
                   {proj.map((pts) => {
-                    return (
-                      <li
-                        key={
-                          Math.random() * Math.random() * Math.random() * 100 +
-                          89
-                        }
-                      >
-                        {pts}
-                      </li>
-                    );
+                    return <li>{pts}</li>;
                   })}
                 </ul>
               </div>
@@ -306,11 +296,7 @@ function App() {
 
                 <ul>
                   {skill.map((skl) => {
-                    return (
-                      <li key={Math.floor(Math.random() * Math.random() * 199)}>
-                        {skl}
-                      </li>
-                    );
+                    return <li>{skl}</li>;
                   })}
                 </ul>
               </div>
@@ -325,15 +311,7 @@ function App() {
 
                 <ul>
                   {hobby.map((hbo) => {
-                    return (
-                      <li
-                        key={Math.floor(
-                          Math.random() * Math.random() * 199 + 200
-                        )}
-                      >
-                        {hbo}
-                      </li>
-                    );
+                    return <li>{hbo}</li>;
                   })}
                 </ul>
               </div>{" "}
@@ -553,7 +531,7 @@ function App() {
               +
             </button>
           </label>
-          <button className="btn" onClick={handlePrint}>
+          <button className="btn" onClick={Handleprint}>
             Print resume
           </button>
         </form>
