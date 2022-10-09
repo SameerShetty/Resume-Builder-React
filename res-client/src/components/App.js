@@ -15,6 +15,11 @@ function App() {
   const [isp, setp] = useState("");
   const [isskil, setskil] = useState("");
   const [ish, seth] = useState("");
+  const [exp, setexperts] = useState([]);
+  const [achiev, setachiev] = useState([]);
+  const [proj, setproj] = useState([]);
+  const [skill, setskills] = useState([]);
+  const [hobby, sethobby] = useState([]);
   const [user, setuser] = useState({
     name: "",
     jobtitle: "",
@@ -26,49 +31,66 @@ function App() {
     sslc: "",
     puc: "",
     grad: "",
-    exp: [],
-    achiev: [],
-    proj: [],
-    skill: [],
-    hobby: [],
   });
   function handleadd(e) {
+    e.preventDefault();
     const { name, value } = e.target;
-    setuser((prev) => {
-      return {
-        [name]: [...prev, value],
-      };
-    });
+
+    switch (name) {
+      case "exp":
+        setexperts((prev) => {
+          return [...prev, value];
+        });
+        setexp("");
+        break;
+      case "achiev":
+        setachiev((prev) => {
+          return [...prev, value];
+        });
+        setach("");
+        break;
+      case "proj":
+        setproj((prev) => {
+          return [...prev, value];
+        });
+        setp("");
+        break;
+      case "skill":
+        setskills((prev) => {
+          return [...prev, value];
+        });
+        setskil("");
+        break;
+      case "hobby":
+        sethobby((prev) => {
+          return [...prev, value];
+        });
+        seth("");
+        break;
+
+      default:
+        break;
+    }
   }
   function handlechangeexp(e) {
     const value = e.target.value;
-    setexp((prev) => {
-      return [...prev, value];
-    });
+    setexp(value);
   }
   function handlechangeach(e) {
     const value = e.target.value;
-    setach((prev) => {
-      return [...prev, value];
-    });
+    setach(value);
   }
   function handlechangep(e) {
     const value = e.target.value;
-    setp((prev) => {
-      return [...prev, value];
-    });
+    setp(value);
   }
   function handlechangesk(e) {
     const value = e.target.value;
-    setskil((prev) => {
-      return [...prev, value];
-    });
+    setskil(value);
   }
   function handlechangehob(e) {
     const value = e.target.value;
-    seth((prev) => {
-      return [...prev, value];
-    });
+    seth(value);
   }
   function handlechange(e) {
     const { name, value } = e.target;
@@ -113,7 +135,9 @@ function App() {
                 <div>
                   <h3>
                     {" "}
-                    <a href={user.mail}>{user.mail}</a>
+                    <a href={user.mail} style={{ color: "#52616b" }}>
+                      {user.mail}
+                    </a>
                   </h3>
                 </div>
               </div>
@@ -165,21 +189,21 @@ function App() {
                   </li>
                 </ul>
               </div>
-              <div class="expertise">
-                <h3 style={{ display: user.exp.length > 0 ? "block" : "none" }}>
+              <div className="expertise">
+                <h3 style={{ display: exp.length > 0 ? "block" : "none" }}>
                   MY EXPERTISE <hr />
                 </h3>
 
                 <ul>
-                  {user.exp.map((experts) => {
-                    return <li>{experts}</li>;
+                  {exp.map((experts) => {
+                    return <li key={Math.random() * 10}>{experts}</li>;
                   })}
                 </ul>
               </div>
               <div className="achieve">
                 <h3
                   style={{
-                    display: user.achiev.length > 0 ? "block" : "none",
+                    display: achiev.length > 0 ? "block" : "none",
                   }}
                 >
                   ACHIEVEMENTS
@@ -187,8 +211,14 @@ function App() {
                 </h3>
 
                 <ul>
-                  {user.achiev.map((ament) => {
-                    return <li>{ament}</li>;
+                  {achiev.map((ament) => {
+                    return (
+                      <li
+                        key={Math.random() * Math.random() * Math.random() * 10}
+                      >
+                        {ament}
+                      </li>
+                    );
                   })}
                 </ul>
               </div>
@@ -242,7 +272,7 @@ function App() {
               <div className="project">
                 <h3
                   style={{
-                    display: user.proj.length > 0 ? "block" : "none",
+                    display: proj.length > 0 ? "block" : "none",
                   }}
                 >
                   PROJECTS
@@ -250,15 +280,24 @@ function App() {
                 </h3>
 
                 <ul>
-                  {user.proj.map((pts) => {
-                    return <li>{pts}</li>;
+                  {proj.map((pts) => {
+                    return (
+                      <li
+                        key={
+                          Math.random() * Math.random() * Math.random() * 100 +
+                          89
+                        }
+                      >
+                        {pts}
+                      </li>
+                    );
                   })}
                 </ul>
               </div>
               <div className="skill">
                 <h3
                   style={{
-                    display: user.skill.length > 0 ? "block" : "none",
+                    display: skill.length > 0 ? "block" : "none",
                   }}
                 >
                   SKILLS
@@ -266,23 +305,35 @@ function App() {
                 </h3>
 
                 <ul>
-                  {user.skill.map((skl) => {
-                    return <li>{skl}</li>;
+                  {skill.map((skl) => {
+                    return (
+                      <li key={Math.floor(Math.random() * Math.random() * 199)}>
+                        {skl}
+                      </li>
+                    );
                   })}
                 </ul>
               </div>
               <div className="hobby">
                 <h3
                   style={{
-                    display: user.hobby.length > 0 ? "block" : "none",
+                    display: hobby.length > 0 ? "block" : "none",
                   }}
                 >
                   HOBBY & INTERESTS <hr />
                 </h3>
 
                 <ul>
-                  {user.hobby.map((hbo) => {
-                    return <li>{hbo}</li>;
+                  {hobby.map((hbo) => {
+                    return (
+                      <li
+                        key={Math.floor(
+                          Math.random() * Math.random() * 199 + 200
+                        )}
+                      >
+                        {hbo}
+                      </li>
+                    );
                   })}
                 </ul>
               </div>{" "}
@@ -416,14 +467,13 @@ function App() {
               onChange={handlechangeexp}
               value={isexp}
               placeholder="Your expertise"
-              name="exp"
               id="exp"
             />
             <button
-              className="btn"
-              onClick={handleadd}
-              name="exp"
+              className="btn-small"
               value={isexp}
+              name="exp"
+              onClick={handleadd}
             >
               +
             </button>
@@ -435,11 +485,10 @@ function App() {
               onChange={handlechangeach}
               value={isach}
               placeholder="Your achievements"
-              name="achiev"
               id="ach"
             />
             <button
-              className="btn"
+              className="btn-small"
               value={isach}
               name="achiev"
               onClick={handleadd}
@@ -457,7 +506,12 @@ function App() {
               name="proj"
               id="pro"
             />
-            <button className="btn" value={isp} onClick={handleadd} name="proj">
+            <button
+              className="btn-small"
+              value={isp}
+              onClick={handleadd}
+              name="proj"
+            >
               +
             </button>
           </label>
@@ -472,16 +526,16 @@ function App() {
               id="ski"
             />
             <button
-              className="btn"
-              name="skill"
+              className="btn-small"
               value={isskil}
+              name="skill"
               onClick={handleadd}
             >
               +
             </button>
           </label>
           <label for="hob">
-            HObby & Interests :
+            Hobby & Interests :
             <input
               type="text"
               onChange={handlechangehob}
@@ -491,16 +545,16 @@ function App() {
               id="hob"
             />
             <button
-              className="btn"
-              name="hobby"
+              className="btn-small"
               value={ish}
+              name="hobby"
               onClick={handleadd}
             >
               +
             </button>
           </label>
           <button className="btn" onClick={handlePrint}>
-            Print this out!
+            Print resume
           </button>
         </form>
       </div>

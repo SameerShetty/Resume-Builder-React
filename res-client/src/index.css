@@ -60,7 +60,18 @@ html {
   cursor: pointer;
   box-shadow: var(--box-shadow);
 }
-
+.btn-small {
+  padding: 9px 16px;
+  outline: none;
+  background-color: var(--font-color-grey);
+  color: var(--font-color-white);
+  font-family: var(--font-family-body);
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: var(--box-shadow);
+}
 @media print {
   :root {
     --font-size-small: 1rem;
